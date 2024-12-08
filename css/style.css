@@ -846,9 +846,18 @@ header.header-sm{
     display: block;
     margin-bottom: 1rem;
 }
-.con{
+.facts-wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    
 }
+.facts-item {
+    flex: 1;
+    text-align: center;
+    margin: 10px;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
