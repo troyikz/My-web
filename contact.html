@@ -66,6 +66,7 @@
         <!-- header -->
 
         <!-- contact section -->
+        <div class="con">
         <section id = "contact" class = "py-4">
             <div class = "container">
                 <div class = "title-wrap">
@@ -73,15 +74,32 @@
                     <h2 class = "lg-title">contact us</h2>
                 </div>
 
-                <div class = "contact-row">
-                    <div class = "contact-left">
-                        <form class = "contact-form">
-                            <input type = "text" class = "form-control" placeholder="Your name">
-                            <input type = "email" class = "form-control" placeholder="Your email">
-                            <textarea rows = "4" class = "form-control" placeholder="Your message" style = "resize: none;"></textarea>
-                            <input type = "submit" class = "btn" value = "Send message">
+                <div class="contact-row"> 
+                    <div class="contact-left">
+                        <form class="contact-form" id="contactForm">
+                            <input type="text" class="form-control" placeholder="Your name" required>
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <textarea rows="4" class="form-control" placeholder="Your message" style="resize: none;" required></textarea>
+                            <input type="submit" class="btn" value="Send message">
                         </form>
+                        <!-- Feedback message -->
+                        <p id="feedbackMessage" style="display: none; color: green; margin-top: 10px;">Thank you for your feedback!</p>
                     </div>
+                </div>
+                
+                <script>
+                    // JavaScript to handle form submission
+                    document.querySelector(".contact-form").addEventListener("submit", function (event) {
+                        event.preventDefault(); // Prevent page refresh
+                        
+                        // Display feedback message
+                        document.getElementById("feedbackMessage").style.display = "block";
+                
+                        // Optional: Clear form fields after submission
+                        this.reset();
+                    });
+                </script>
+                
                     <div class = "contact-right my-2">
                         <div class = "contact-item">
                             <span class = "contact-icon flex">
@@ -110,6 +128,7 @@
                                 <p class = "text">info@tripboss.com</p>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -169,14 +188,30 @@
                     </ul>
                 </div>
 
-                <div class = "subscribe-form footer-item">
+                <div class="subscribe-form footer-item">
                     <h2>Subscribe for Newsletter!</h2>
-                    <form class = "flex">
-                        <input type = "email" placeholder="Enter Email" class = "form-control">
-                        <input type = "submit" class = "btn" value = "Subscribe">
+                    <form class="flex" id="subscribeForm">
+                        <input type="email" id="emailInput" placeholder="Enter Email" class="form-control" required>
+                        <input type="submit" class="btn" value="Subscribe">
                     </form>
+                    <p id="subscribeMessage" style="color: green; display: none; margin-top: 10px;">Thank you for subscribing!</p>
                 </div>
-            </div>
+                
+                <script>
+                    // Handle form submission
+                    document.getElementById("subscribeForm").addEventListener("submit", function (event) {
+                        event.preventDefault(); // Prevent the form from refreshing the page
+                        const emailInput = document.getElementById("emailInput").value;
+                
+                        if (emailInput.trim() !== "") { // Ensure email is not empty
+                            document.getElementById("subscribeMessage").style.display = "block"; // Show thank-you message
+                            document.getElementById("emailInput").value = ""; // Clear the input field
+                        } else {
+                            alert("Please enter a valid email address."); // Alert for empty email
+                        }
+                    });
+                </script>
+                
         </footer>
         <!-- end of footer -->
 

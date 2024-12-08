@@ -846,3 +846,9 @@ header.header-sm{
     display: block;
     margin-bottom: 1rem;
 }
+.con{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
